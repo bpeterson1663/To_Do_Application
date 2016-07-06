@@ -3,7 +3,6 @@ body{
   background: #2BC0E4; /* fallback for old browsers */
   background: -webkit-linear-gradient(to left, #2BC0E4 , #EAECC6); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to left, #2BC0E4 , #EAECC6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
 }
 
 h1{
@@ -14,6 +13,15 @@ h1{
   text-transform: uppercase;
   font-size: 24px;
   font-weight: normal;
+}
+h6{
+  background-color: #2980e9;
+  color: white;
+  margin: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: center;
 }
 
 ul{

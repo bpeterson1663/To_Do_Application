@@ -1,34 +1,34 @@
 $(document).ready(function(){
   $("input[type='text']").hide();
-  getTasks();
+  //getTasks();
   //check off specific to dos
   $("ul").on("click","li", function(){
     $(this).toggleClass("completed");
 
-    var id = $(this).data('id');
-    var completeStatus = $(this).data('completed');
-    var taskCompleted = {};
-
-    taskCompleted.id = id;
-    taskCompleted.completed = completeStatus;
-
-    if(completeStatus == false){
-        taskCompleted.completed = true;
-        $.ajax({
-          type: 'PUT',
-          url: '/updateTask',
-          data: taskCompleted,
-          success: getTasks
-        });
-    }else if(completeStatus == true){
-      taskCompleted.completed = false;
-      $.ajax({
-        type: 'PUT',
-        url: '/updateTask',
-        data: taskCompleted,
-        success: getTasks
-      });
-    }
+    // var id = $(this).data('id');
+    // var completeStatus = $(this).data('completed');
+    // var taskCompleted = {};
+    //
+    // taskCompleted.id = id;
+    // taskCompleted.completed = completeStatus;
+    //
+    // if(completeStatus == false){
+    //     taskCompleted.completed = true;
+    //     $.ajax({
+    //       type: 'PUT',
+    //       url: '/updateTask',
+    //       data: taskCompleted,
+    //       success: getTasks
+    //     });
+    // }else if(completeStatus == true){
+    //   taskCompleted.completed = false;
+    //   $.ajax({
+    //     type: 'PUT',
+    //     url: '/updateTask',
+    //     data: taskCompleted,
+    //     success: getTasks
+    //   });
+    // }
   });
 
   //click the delete X
@@ -38,15 +38,15 @@ $(document).ready(function(){
       $(this).remove();
     });
     event.stopPropagation();
-    var taskDeleted = {};
-    taskDeleted.id = deleteTask;
-    //make ajax call
-    console.log('Task Deleted', taskDeleted);
-    $.ajax({
-      type: 'PUT',
-      url: '/deleteTask',
-      data: taskDeleted
-    });
+    // var taskDeleted = {};
+    // taskDeleted.id = deleteTask;
+    // //make ajax call
+    // console.log('Task Deleted', taskDeleted);
+    // $.ajax({
+    //   type: 'PUT',
+    //   url: '/deleteTask',
+    //   data: taskDeleted
+    // });
   });
 
   $("input[type='text']").keypress(function(event){
@@ -55,18 +55,18 @@ $(document).ready(function(){
       var newTaskObject = {};
        newTaskObject.completed = false;
        newTaskObject.task = $(this).val();
-
-      $.ajax({
-        type: 'POST',
-        url: '/addTask',
-        data: newTaskObject,
-        success: function(response){
-          console.log(response);
-          $('ul').append('<li data-id="'+response[0].id+'" data-completed="'+response[0].completed+'"><span><i class="fa fa-trash"></i></span> '+newTaskObject.task+'</li>');
-
-        }
-
-      });
+       $('ul').append('<li><span><i class="fa fa-trash"></i></span> '+newTaskObject.task+'</li>');
+      // $.ajax({
+      //   type: 'POST',
+      //   url: '/addTask',
+      //   data: newTaskObject,
+      //   success: function(response){
+      //     console.log(response);
+      //     $('ul').append('<li data-id="'+response[0].id+'" data-completed="'+response[0].completed+'"><span><i class="fa fa-trash"></i></span> '+newTaskObject.task+'</li>');
+      //
+      //   }
+      //
+      // });
     }
   });
 
