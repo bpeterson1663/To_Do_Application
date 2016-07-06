@@ -56,6 +56,7 @@ $(document).ready(function(){
        newTaskObject.completed = false;
        newTaskObject.task = $(this).val();
        $('ul').append('<li><span><i class="fa fa-trash"></i></span> '+newTaskObject.task+'</li>');
+       $("input[type='text']").val('');
       // $.ajax({
       //   type: 'POST',
       //   url: '/addTask',
