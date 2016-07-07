@@ -55,7 +55,7 @@ $(document).ready(function(){
       var newTaskObject = {};
        newTaskObject.completed = false;
        newTaskObject.task = $(this).val();
-       $('ul').append('<li><span><i class="fa fa-trash"></i></span> '+newTaskObject.task+'</li>');
+       $('ul').append('<li><span><i class="fa fa-trash"></i></span> '+newTaskObject.task+'</li>');//appends new task to the dom
        $("input[type='text']").val('');
       // $.ajax({
       //   type: 'POST',
@@ -75,7 +75,7 @@ $(document).ready(function(){
     $("input[type='text']").fadeToggle();
   });
 });
-
+//NOT BEING USED CURRENTLY 
 function getTasks(){
   $.ajax({
     type: 'GET',
